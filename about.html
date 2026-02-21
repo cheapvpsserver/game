@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 - Adobe Acrobat Pro DC</title>
+    <!-- 网站描述 -->
+    <meta name="description" content="关于Adobe Acrobat Pro DC网站的信息，包括免责声明和使用条款。">
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    <!-- 引入Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* 基础样式重置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f8ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* 全局容器 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航栏样式 */
+    nav {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .nav-logo-img {
+      width: 200px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: #666;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      font-weight: normal;
+    }
+
+    .nav-menu a:hover {
+      color: #4683f4;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* 按钮基础样式 */
+    .btn {
+      padding: 10px 24px;
+      border-radius: 24px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    /* 按钮图标样式 */
+    .btn i {
+      margin-right: 8px;
+    }
+
+    .btn-blue {
+      background-color: #4683f4;
+      color: white;
+    }
+
+    .btn-blue:hover {
+      background-color: #3366cc;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #4683f4;
+      border: 1px solid #4683f4;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(70, 131, 244, 0.1);
+    }
+
+    /* 内容区域 */
+    .content {
+      padding: 60px 0;
+    }
+
+    .content h1 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 30px 0 20px;
+    }
+
+    .content p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .content-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* 页脚 */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #e8e8e8;
+    }
+    
+    /* 友情链接样式 */
+    .footer-links {
+      margin-bottom: 20px;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 12px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #4683f4;
+    }
+    
+    /* 右侧功能按钮样式 */
+    .side-tools {
+      position: fixed;
+      right: 250px;
+      bottom: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 99;
+    }
+    
+    /* 移动端适配 */
+    @media (max-width: 1200px) {
+      .side-tools {
+        right: 30px;
+        bottom: 30px;
+      }
+    }
+    
+    /* 右侧功能按钮 */
+    .side-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: #4683f4;
+      border: none;
+      box-shadow: 0 2px 12px rgba(70, 131, 244, 0.3);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      text-align: center;
+    }
+    
+    .side-btn:hover {
+      background-color: #3366cc;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(51, 102, 204, 0.4);
+    }
+    
+    .side-btn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* 语言切换按钮样式 */
+    .lang-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .lang-top, .lang-bottom {
+      position: relative;
+      font-size: 12px;
+      font-weight: 500;
+      width: 100%;
+      text-align: center;
+      padding: 3px 0;
+      z-index: 1;
+    }
+    
+    /* 为语言切换按钮添加上下分割线 */
+    .side-btn#language-switch::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 2;
+    }
+
+    /* 响应式适配 */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .content h1 {
+        font-size: 28px;
+      }
+      
+      .content-container {
+        padding: 24px;
+      }
+    }
+</style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="images/logo.png" alt="Adobe Acrobat Pro DC" class="nav-logo-img">
+      </a>
+      <div class="nav-menu">
+        <a href="/">首页</a>
+        <a href="/about">关于</a>
+        <a href="/privacy">隐私</a>
+      </div>
+      <div class="nav-actions">
+        <a href="/" class="btn btn-blue">返回首页</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- 内容区域 -->
+    <section class="content">
+      <div class="content-container">
+        <div id="gamemonetize-video"></div>
+
+        <script type="text/javascript">
+            window.VIDEO_OPTIONS = {
+                gameid : "dosj6eoesgvfrmsoxbkbglgg2uqr4ual",
+                width  : "100%",
+                height : "480px",
+                color  : "#3f007e",
+                getAds  : "true"
+            };
+            (function (a, b, c) {
+                var d = a.getElementsByTagName(b)[0];
+                a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js", d.parentNode.insertBefore(a, d))
+            })(document, "script", "gamemonetize-video-api");  
+        </script>
+
+        <h1>关于本网站</h1>
+        
+        <h2>网站宗旨</h2>
+        <p>本网站旨在为用户提供Adobe Acrobat Pro DC软件的下载链接，方便用户获取这款专业的PDF编辑与管理工具。</p>
+        
+        <h2>免责声明</h2>
+        <p>本网站仅提供指向公开可用软件的链接。我们不修改任何文件，不收集个人信息，无需登录。</p>
+        <p>我们不保证软件的安全性、完整性或可用性。使用任何软件前，请确保您了解相关风险，并遵守软件的许可协议。</p>
+        <p>本网站与Adobe公司无任何关联，所有商标和产品名称均为其各自所有者的财产。</p>
+        
+        <h2>使用条款</h2>
+        <p>通过访问和使用本网站，您同意遵守以下条款：</p>
+        <p>1. 本网站提供的链接仅供个人使用，不得用于商业目的。</p>
+        <p>2. 请尊重软件的知识产权，仅在符合许可协议的情况下使用软件。</p>
+        <p>3. 本网站不对因使用或无法使用本网站提供的链接而导致的任何损失或损害承担责任。</p>
+        
+        <h2>联系我们</h2>
+        <p>如果您对本网站有任何疑问或建议，欢迎通过以下方式联系我们：</p>
+        <p><a href="https://www.calipertools.com/" target="_blank" rel="noopener noreferrer">CaliperTools官方网站</a></p>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+      <div class="footer-links">
+        <a href="https://www.calipertools.com/">CaliperTools</a>
+        <a href="https://emoji.calipertools.com/">Emoji</a>
+        <a href="https://IndexTTS.calipertools.com/">IndexTTS</a>
+        <a href="https://VoxCPM.calipertools.com/">VoxCPM</a>
+        <a href="https://CosyVoice.calipertools.com/">CosyVoice</a>
+        <a href="/about">关于</a>
+        <a href="/privacy">隐私</a>
+      </div>
+      <div style="margin: 20px 0;">
+        <p>本网站仅提供指向公开可用软件的链接。</p>
+        <p>我们不修改任何文件。</p>
+        <p>不收集个人信息。</p>
+        <p>无需登录。</p>
+        <p>不保证安全（免责）</p>
+        <p>下载来源：官方网站</p>
+        <p>本网站不托管任何可执行文件。</p>
+      </div>
+      <p>© 2025 CaliperTools. All rights reserved. Precision tools for everyone.</p>
+    </footer>
+  </div>
+
+  <!-- 右侧功能按钮 -->
+  <div class="side-tools">
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="side-btn" title="回到顶部">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <!-- 语言切换按钮 -->
+    <button id="language-switch" class="side-btn" title="切换语言" data-lang="zh">
+      <div class="lang-container">
+        <span class="lang-top" style="color: white;">中文</span>
+        <span class="lang-bottom" style="color: white;">EN</span>
+      </div>
+    </button>
+  </div>
+
+  <script>
+    // 添加平滑滚动效果
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // 回到顶部功能
+    const backToTopBtn = document.getElementById('back-to-top');
+    const langSwitchBtn = document.getElementById('language-switch');
+    
+    // 初始化：语言切换按钮始终显示
+    langSwitchBtn.classList.add('show');
+    
+    // 监听滚动事件，显示/隐藏回到顶部按钮
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    
+    // 点击回到顶部
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 语言切换功能 - 单个按钮点击切换
+    langSwitchBtn.addEventListener('click', function() {
+      const currentLang = this.getAttribute('data-lang');
+      
+      if (currentLang === 'zh') {
+        // 从中文切换到英文，跳转到en文件夹
+        window.location.href = '/en/about';
+      } else {
+        // 从英文切换到中文，跳转到根目录
+        window.location.href = '/about';
+      }
+    });
+  </script>
+</body>
+</html>

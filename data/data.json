@@ -1,0 +1,170 @@
+{
+  "featured": [
+    {
+      "id": 1,
+      "name": "战神4",
+      "category": "动作冒险",
+      "rating": "9.5",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20action%20game%20high%20quality&image_size=square"
+    },
+    {
+      "id": 2,
+      "name": "极限竞速",
+      "category": "竞速",
+      "rating": "9.2",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20racing%20game%20modern%20cars&image_size=square"
+    },
+    {
+      "id": 3,
+      "name": "艾尔登法环",
+      "category": "角色扮演",
+      "rating": "9.8",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20rpg%20fantasy%20world&image_size=square"
+    },
+    {
+      "id": 4,
+      "name": "使命召唤",
+      "category": "射击",
+      "rating": "9.0",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20shooter%20game%20modern%20warfare&image_size=square"
+    },
+    {
+      "id": 5,
+      "name": "FIFA 24",
+      "category": "体育",
+      "rating": "9.1",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20sports%20game%20football&image_size=square"
+    },
+    {
+      "id": 6,
+      "name": "文明7",
+      "category": "策略",
+      "rating": "9.6",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20strategy%20game%20warfare&image_size=square"
+    },
+    {
+      "id": 7,
+      "name": "塞尔达传说",
+      "category": "冒险",
+      "rating": "9.9",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20adventure%20game%20exploration&image_size=square"
+    },
+    {
+      "id": 8,
+      "name": "街头霸王6",
+      "category": "格斗",
+      "rating": "9.3",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20fighting%20game%20martial%20arts&image_size=square"
+    }
+  ],
+  "latest": [
+    {
+      "id": 9,
+      "name": "黑神话：悟空",
+      "category": "动作冒险",
+      "rating": "9.7",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20new%20release%20action%20game&image_size=square"
+    },
+    {
+      "id": 10,
+      "name": "最终幻想17",
+      "category": "角色扮演",
+      "rating": "9.4",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20new%20release%20rpg%20game&image_size=square"
+    },
+    {
+      "id": 11,
+      "name": "极品飞车23",
+      "category": "竞速",
+      "rating": "9.1",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20new%20release%20racing%20game&image_size=square"
+    },
+    {
+      "id": 12,
+      "name": "战地2044",
+      "category": "射击",
+      "rating": "9.0",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20new%20release%20shooter%20game&image_size=square"
+    },
+    {
+      "id": 13,
+      "name": "NBA 2K25",
+      "category": "体育",
+      "rating": "9.2",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20new%20release%20sports%20game&image_size=square"
+    },
+    {
+      "id": 14,
+      "name": "星际争霸3",
+      "category": "策略",
+      "rating": "9.5",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20new%20release%20strategy%20game&image_size=square"
+    },
+    {
+      "id": 15,
+      "name": "超级马里奥奥德赛2",
+      "category": "冒险",
+      "rating": "9.8",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20new%20release%20adventure%20game&image_size=square"
+    },
+    {
+      "id": 16,
+      "name": "铁拳8",
+      "category": "格斗",
+      "rating": "9.3",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20new%20release%20fighting%20game&image_size=square"
+    }
+  ],
+  "twoPlayer": [
+    {
+      "id": 17,
+      "name": "双人成行",
+      "category": "双人",
+      "rating": "9.7",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=2%20player%20game%20thumbnail%20fun%20multiplayer&image_size=square"
+    },
+    {
+      "id": 18,
+      "name": "胡闹厨房3",
+      "category": "双人",
+      "rating": "9.2",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=2%20player%20game%20thumbnail%20cooperative%20cooking%20game&image_size=square"
+    }
+  ],
+  "baseball": [
+    {
+      "id": 44,
+      "name": "MLB The Show 24",
+      "category": "棒球",
+      "rating": "9.5",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=baseball%20game%20thumbnail%20realistic%20baseball%20action&image_size=square"
+    }
+  ],
+  "basketball": [
+    {
+      "id": 71,
+      "name": "NBA 2K25",
+      "category": "篮球",
+      "rating": "9.5",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=basketball%20game%20thumbnail%20realistic%20basketball%20action&image_size=square"
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "动作",
+      "category": "标签",
+      "count": 45,
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20tag%20action%20category%20icon&image_size=square"
+    }
+  ],
+  "related": [
+    {
+      "id": 98,
+      "name": "超级马里奥兄弟",
+      "category": "冒险",
+      "rating": "9.5",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=game%20thumbnail%20super%20mario%20brothers%20adventure%20game&image_size=square"
+    }
+  ]
+}

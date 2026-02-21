@@ -1,0 +1,192 @@
+<!-- 顶部导航栏 -->
+<nav>
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <img src="images/logo.png" alt="游戏天堂" class="nav-logo-img">
+    </a>
+    <div class="nav-menu">
+        <a href="/">首页</a>
+        <a href="2player.html">2 Player</a>
+        <a href="baseball.html">Baseball</a>
+        <a href="basketball.html">Basketball</a>
+      </div>
+    <!-- 移动端菜单按钮 -->
+    <div class="mobile-menu-btn">
+      <div class="menu-icon">
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- 移动端弹出菜单 -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href="/">首页</a>
+      <a href="2player.html">2 Player</a>
+      <a href="baseball.html">Baseball</a>
+      <a href="basketball.html">Basketball</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* 移动端菜单按钮样式 */
+  .mobile-menu-btn {
+    display: none;
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  .menu-icon {
+    width: 24px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .menu-icon::before,
+  .menu-icon::after,
+  .menu-icon span {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-icon::before {
+    top: 0;
+  }
+
+  .menu-icon span {
+    top: 9px;
+  }
+
+  .menu-icon::after {
+    bottom: 0;
+  }
+
+  /* 菜单图标点击动画 */
+  .menu-icon.active::before {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+
+  .menu-icon.active span {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .menu-icon.active::after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+  }
+
+  /* 移动端菜单样式 */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transition: left 0.3s ease;
+  }
+
+  .mobile-menu.active {
+    left: 0;
+  }
+
+  .mobile-menu-content {
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-menu-content a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-menu-content a:hover {
+    color: #4683f4;
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: block;
+    }
+
+    .nav-container {
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+</style>
+
+<script>
+  // 移动端菜单功能
+  (function() {
+    // 等待DOM加载完成
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMenu);
+    } else {
+      initMenu();
+    }
+
+    function initMenu() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      
+      if (mobileMenuBtn && mobileMenu) {
+        // 绑定点击事件监听器
+        mobileMenuBtn.addEventListener('click', function() {
+          const menuIcon = this.querySelector('.menu-icon');
+          mobileMenu.classList.toggle('active');
+          if (menuIcon) {
+            menuIcon.classList.toggle('active');
+          }
+        });
+
+        // 点击菜单外部关闭菜单
+        document.addEventListener('click', function(e) {
+          if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            const menuIcon = mobileMenuBtn.querySelector('.menu-icon');
+            if (menuIcon) {
+              menuIcon.classList.remove('active');
+            }
+          }
+        });
+
+        // 点击菜单链接关闭菜单
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            const menuIcon = mobileMenuBtn.querySelector('.menu-icon');
+            if (menuIcon) {
+              menuIcon.classList.remove('active');
+            }
+          });
+        });
+      }
+    }
+  })();
+</script>

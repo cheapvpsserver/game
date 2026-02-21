@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obby Chop Trees in the Forest - 森林砍树冒险游戏</title>
+    <!-- 网站描述 -->
+    <meta name="description" content="Obby Chop Trees in the Forest是一款有趣的森林砍树冒险游戏，玩家需要在森林中砍伐树木，收集资源，完成各种挑战。">
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="scripts/game-data.js"></script>
+    <style>
+    /* 基础样式重置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f8ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* 全局容器 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航栏样式 */
+    nav {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .nav-logo-img {
+      width: 200px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: #666;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      font-weight: normal;
+    }
+
+    .nav-menu a:hover {
+      color: #4683f4;
+    }
+
+    /* 按钮基础样式 */
+    .btn {
+      padding: 10px 24px;
+      border-radius: 24px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    
+    /* 按钮图标样式 */
+    .btn i {
+      margin-right: 8px;
+    }
+
+    .btn-blue {
+      background-color: #4683f4;
+      color: white;
+    }
+
+    .btn-blue:hover {
+      background-color: #3366cc;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #4683f4;
+      border: 1px solid #4683f4;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(70, 131, 244, 0.1);
+    }
+
+    /* 面包屑导航 */
+    .breadcrumb {
+      margin: 20px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .breadcrumb a {
+      color: #4683f4;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      margin: 0 8px;
+      color: #999;
+    }
+
+    /* 游戏标题 */
+    .game-title {
+      margin: 30px 0;
+    }
+
+    .game-title h1 {
+      font-size: 36px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .game-meta {
+      display: flex;
+      gap: 20px;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* 游戏显示区域 */
+    .game-display {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      margin: 30px 0;
+    }
+
+    #gamemonetize-video {
+      width: 100%;
+      height: 480px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* 游戏信息区域 */
+    .game-info-section {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+      margin: 30px 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .info-item {
+      margin-bottom: 20px;
+    }
+
+    .info-item h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .info-item p {
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* 游戏标签 */
+    .game-tags {
+      margin-top: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #f0f4ff;
+      color: #4683f4;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* 相关游戏推荐 */
+    .related-games {
+      margin: 60px 0;
+    }
+
+    .related-games h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 30px;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .game-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .game-card-img {
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .game-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .game-card:hover .game-card-img img {
+      transform: scale(1.05);
+    }
+
+    .game-card-info {
+      padding: 15px;
+    }
+
+    .game-card-info h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .game-card-category {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .game-card-rating {
+      font-size: 14px;
+      color: #ff9800;
+      font-weight: 500;
+    }
+
+    /* 页脚 */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #e8e8e8;
+      margin-top: 60px;
+    }
+    
+    /* 友情链接样式 */
+    .footer-links {
+      margin-bottom: 20px;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 12px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #4683f4;
+    }
+
+    /* 响应式适配 */
+    @media (max-width: 992px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .game-title h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .game-title h1 {
+        font-size: 24px;
+      }
+
+      .game-meta {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .game-info-section {
+        padding: 20px;
+      }
+
+      #gamemonetize-video {
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #gamemonetize-video {
+        height: 250px;
+      }
+
+      .game-display {
+        padding: 10px;
+      }
+    }
+    </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="images/logo.png" alt="游戏天堂" class="nav-logo-img">
+      </a>
+      <div class="nav-menu">
+        <a href="index.html">首页</a>
+        <a href="2player.html">2 Player</a>
+        <a href="baseball.html">Baseball</a>
+        <a href="basketball.html">Basketball</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="2player.html">2 Player</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Obby Chop Trees in the Forest</span>
+    </div>
+
+    <!-- 游戏标题 -->
+    <div class="game-title">
+      <h1>Obby Chop Trees in the Forest</h1>
+      <div class="game-meta">
+        <span><i class="fas fa-gamepad"></i> 2 Player</span>
+        <span><i class="fas fa-calendar-alt"></i> 2024-01-15</span>
+        <span><i class="fas fa-star"></i> 4.8/5</span>
+      </div>
+    </div>
+
+    <!-- 游戏显示区域 -->
+    <div class="game-display">
+      <div id="gamemonetize-video"></div>
+      <script type="text/javascript">
+        window.VIDEO_OPTIONS = {
+          gameid : "dosj6eoesgvfrmsoxbkbglgg2uqr4ual",
+          width  : "100%",
+          height : "480px",
+          color  : "#3f007e",
+          getAds  : "true"
+        };
+        (function (a, b, c) {
+          var d = a.getElementsByTagName(b)[0];
+          a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/video.js", d.parentNode.insertBefore(a, d))
+        })(document, "script", "gamemonetize-video-api");
+      </script>
+    </div>
+
+    <!-- 游戏信息区域 -->
+    <div class="game-info-section">
+      <div class="info-grid">
+        <div class="info-item">
+          <h3>游戏描述</h3>
+          <p>Obby Chop Trees in the Forest是一款有趣的森林砍树冒险游戏，玩家需要在茂密的森林中砍伐树木，收集木材资源，完成各种挑战任务。游戏采用了精美的3D图形，提供了流畅的游戏体验和丰富的游戏内容。</p>
+          <p>在游戏中，你将扮演一名勇敢的伐木工，探索广阔的森林，使用各种工具砍伐不同种类的树木，解锁新的区域和工具，与森林中的各种生物互动，体验真实的森林生活。</p>
+        </div>
+        <div class="info-item">
+          <h3>游戏玩法</h3>
+          <p><strong>Controls Movement:</strong></p>
+          <p>On PC: W — forward, A — left, S — backward, D — right</p>
+          <p>On mobile: Use the joystick in the bottom-left corner of the screen.</p>
+          <p><strong>Camera Rotation:</strong></p>
+          <p>On PC: Hold the right mouse button and move the mouse.</p>
+          <p>On Mobile: Swipe</p>
+        </div>
+        <div class="info-item">
+          <h3>游戏类别</h3>
+          <p>冒险、休闲、模拟、2 Player</p>
+        </div>
+        <div class="info-item">
+          <h3>支持平台</h3>
+          <p>浏览器 (HTML5)</p>
+        </div>
+        <div class="info-item">
+          <h3>发布时期</h3>
+          <p>2024-01-15</p>
+        </div>
+        <div class="info-item">
+          <h3>游戏标签</h3>
+          <div class="game-tags">
+            <span class="tag">砍树</span>
+            <span class="tag">森林</span>
+            <span class="tag">冒险</span>
+            <span class="tag">休闲</span>
+            <span class="tag">2 Player</span>
+            <span class="tag">模拟</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 相关游戏推荐 -->
+    <div class="related-games">
+      <h2>相关游戏推荐</h2>
+      <div class="games-grid">
+        <!-- 动态加载相关游戏 -->
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+      <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="2player.html">2 Player</a>
+        <a href="baseball.html">Baseball</a>
+        <a href="basketball.html">Basketball</a>
+      </div>
+      <p>© 2024 游戏天堂. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- 右侧功能按钮容器 -->
+  <div id="side-tools-container"></div>
+
+  <script>
+    // 加载右侧功能按钮
+    fetch('side-tools.html')
+      .then(response => response.text())
+      .then(data => {
+        const sideToolsContainer = document.getElementById('side-tools-container');
+        sideToolsContainer.innerHTML = data;
+        
+        // 执行side-tools.html中的JavaScript代码
+        const scripts = sideToolsContainer.querySelectorAll('script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
+          }
+          document.body.appendChild(newScript);
+          document.body.removeChild(newScript);
+        });
+      })
+      .catch(error => console.error('加载右侧功能按钮失败:', error));
+  </script>
+</body>
+</html>
